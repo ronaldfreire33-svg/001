@@ -1,3 +1,5 @@
+<img width="746" height="341" alt="002" src="https://github.com/user-attachments/assets/1f5e9555-7b0a-4003-9098-dfe03e483475" />
+<img width="746" height="341" alt="002" src="https://github.com/user-attachments/assets/34238f57-23fb-47a0-b245-7d63179d23cd" />
 <img width="746" height="341" alt="Untitled-2026-07-11-0913" src="https://github.com/user-attachments/assets/8e7fb7f3-6825-471d-adb1-5773a1648a39" />
 # “Precio, Uso y Oferta: Análisis del Mercado de Autos Usados”
 
@@ -94,6 +96,7 @@ ORDER BY Promedio_KM DESC;
 <img width="746" height="341" alt="Untitled-2026-07-11-0913" src="https://github.com/user-attachments/assets/950202a2-9463-447c-82f3-021207e5571e" />
 <img width="1257" height="573" alt="image" src="https://github.com/user-attachments/assets/9505cce6-cfda-41c6-bb5b-844cd59eba1a" />
 <img width="1138" height="536" alt="image" src="https://github.com/user-attachments/assets/808dded9-1542-49e5-8a49-6c67d1da38c2" />
+<img width="746" height="341" alt="002" src="https://github.com/user-attachments/assets/2d84f096-2237-4c66-9b21-63f52d91431a" />
 
 
 
