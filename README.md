@@ -143,7 +143,7 @@ FROM Registro_PatioTuerca
 GROUP BY Vida_util;
 ```
 
-<img width="688" height="251" alt="image 6" src="https://github.com/user-attachments/assets/3ed18f4f-4017-44af-a68f-741ca7b78a40" />
+![Texto alternativo](<img width="688" height="251" alt="image 6" src="https://github.com/user-attachments/assets/3ed18f4f-4017-44af-a68f-741ca7b78a40" />)
 
 
 ### Tropiezos y Lecciones con la Sintaxis
