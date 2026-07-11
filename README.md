@@ -153,10 +153,7 @@ GROUP BY Vida_util;
 
 <img width="1342" height="242" alt="image" src="https://github.com/user-attachments/assets/373d805f-f5cf-4556-bd4a-5d85bc741c80" />
 
-<img width="983" height="615" alt="image" src="https://github.com/user-attachments/assets/be0e1d9e-1428-42fd-add1-a687f774f2ae" />
-
-
-
+<img width="972" height="588" alt="image" src="https://github.com/user-attachments/assets/f38adefe-21f5-4d8f-bdcc-0774ba457976" />
 
 
 ### Errores Encontrados y Cosas que Aprendí en el Camino
