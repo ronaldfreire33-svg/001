@@ -156,7 +156,7 @@ GROUP BY Vida_util;
 
 <img width="947" height="248" alt="image" src="https://github.com/user-attachments/assets/13677491-0089-444b-8372-e1e2a3a61aa0" />
 
-<img width="1117" height="573" alt="image" src="https://github.com/user-attachments/assets/921e6a31-3644-4b19-abfa-ee198439cfd6" />
+<img width="1021" height="530" alt="image" src="https://github.com/user-attachments/assets/1471e63d-532f-4213-a246-383af36610bf" />
 
 
 
