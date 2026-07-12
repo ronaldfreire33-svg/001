@@ -1,12 +1,12 @@
 # “Precio, Uso y Oferta: Análisis del Mercado de Autos Usados”
 
-## Contexto, Origen de los Datos. Preguntas de negocio que responde este análisis:
+## Contexto, Origen de los Datos:
 
 - **Objetivo:** Practicar SQL con un caso real intentando responder preguntas básicas sobre autos usados en Ecuador: precios promedio, rankings de los más baratos, cómo cae el precio según el kilometraje, y qué tan disponible está cada rango de kilometraje en el mercado actual.
 - **Fuente:** Usé un dataset público de Kaggle (el autor indica que los datos son extraídos de PatioTuerca).
 - **Aclaración y Mentoría:** Este proyecto lo desarrollé de la mano de la IA como una guía, no como alguien que lo resolviera por mí. Mi meta no fue solo tirar código, sino aprender a interpretar los resultados y saber qué herramientas de SQL usar en un escenario real sin instrucciones guiadas.
 
-## Preguntas de negocio que responde este análisis:
+### Preguntas de negocio que responde este análisis:
 
 **1.** *¿Qué modelos tienen mayor presencia en el mercado de autos usados?*
 
@@ -39,13 +39,9 @@ Los modelos más vendidos (Aveo Family, Explorer XLT, Spark GT, Fortuner 2.7, Gr
 
 Al tener claro el panorama en el terminal, decidí que están serian las directrices conceptuales a ejecutar en este bloque:
 
-- Filtrado Estratégico en la columna “Modelo” (Cláusula WHERE):
+- Filtrado Estratégico en la columna “Modelo” (Cláusula WHERE): Como ya tengo el top de modelos, a partir de ahora solo esos serian los modelos con los voy a trabajar.
 
-  Como ya tengo el top de modelos, a partir de ahora solo esos serian los modelos con los voy a trabajar.
-
-- Tratamiento de Nulos y Vacíos en la columna “Precio” (Clausula CASE WHEN):
-
-  Debo conocer si me enfrento al menos en esos modelos a nulos, o vacíos en esos modelos.
+- Tratamiento de Nulos y Vacíos en la columna “Precio” (Clausula CASE WHEN): Debo conocer si me enfrento al menos en esos modelos a nulos, o vacíos en esos modelos.
 
 ```sql
 SELECT 
