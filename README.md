@@ -16,6 +16,8 @@
 
 **4.** *¿Qué rango de kilometraje concentra la mayor cantidad de publicaciones?*
 
+------------------
+
 ## Bloque 0: Diagnóstico Inicial (¿A qué me enfrentaba?)
 
 ### ¿Qué se buscaba hacer?
@@ -33,7 +35,9 @@ LIMIT 5 ;
 ```
 <img width="647" height="312" alt="image" src="https://github.com/user-attachments/assets/fe147a4f-bff7-49e1-8f7d-1a6ad0256d8e" />
 
-Los modelos más vendidos (Aveo Family, Explorer XLT, Spark GT, Fortuner 2.7, Grand Vitara SZ).
+:white_check_mark: **Con esto queda respondida la primera pregunta: los 5 modelos con mayor presencia en el mercado son Aveo Family, Explorer XLT, Spark GT, Fortuner 2.7 y Grand Vitara SZ. Antes de responder las siguientes preguntas (precio promedio, mínimo y máximo), necesitaba asegurarme de que los datos de precio fueran confiables.**
+
+------------------
 
 ## Bloque 1 — Limpieza (Enfoque de Modelos Top)
 
@@ -60,13 +64,17 @@ WHERE Modelo IN ('Aveo Family', 'Explorer XLT', 'Spark GT', 'Fortuner 2.7', 'Gra
 - **Precios nulos (`NULL`):** 0 filas.
 - **Muestra limpia utilizable:** 601 filas.
 
-**Criterio sobre alterar datos:** Al detectar las 5 filas vacías, evalué si debía rellenar esos valores, pero la decisión correcta fue no modificar la información original para no romper la integridad de la base, el tocar base de datos o valores sin una autorización lo único que lograría es alterar datos para el informe final.
+***Criterio sobre alterar datos:** Al detectar las 5 filas vacías, evalué si debía rellenar esos valores, pero la decisión correcta fue no modificar la información original para no romper la integridad de la base, el tocar base de datos o valores sin una autorización lo único que lograría es alterar datos para el informe final.***
+
+:white_check_mark: **Ya con la muestra limpia de 601 filas, podía responder con confianza la segunda pregunta: ¿cuál es el precio promedio, mínimo y máximo de cada modelo?**
+
+*A partir de aquí una de mis clausulas principales además de los modelos… es la adjuntada, de esa manera le pedimos a SQL que no tome en consideración las filas que tengan valores nulos en la columna “Precio”.*
 
 ```sql
 WHERE Precio IS NOT NULL AND Precio != ''
 ```
 
-A partir de aquí una de mis clausulas principales además de los modelos… es la adjuntada, de esa manera le pedimos a SQL que no tome en consideración las filas que tengan valores nulos en la columna “Precio”.
+------------------
 
 ## Bloque 2: Métricas Generales (Agregaciones)
 
@@ -108,6 +116,10 @@ ORDER BY Promedio_KM DESC;
 1. El **Spark GT** es el modelo con menor desgaste promedio (63,340 km) y mantiene un precio promedio de $12,470 USD, muy cercano al *Aveo Family* ($12,240 USD) a pesar de ser un segmento más pequeño, debido a su menor uso.
 2. El **Explorer XLT** y la **Fortuner 2.7** lideran el rango de precios altos (~$32,200 USD promedio), pero el Explorer presenta un kilometraje promedio superior (143k km frente a 123k km).
 
+:white_check_mark: **Estas métricas dan un promedio general por modelo, pero no muestran cómo se distribuyen los precios individuales dentro de cada uno. Antes de avanzar a la pregunta de kilometraje, quise identificar cuáles son las publicaciones más económicas y más caras dentro de cada modelo.**
+
+------------------
+
 ## Bloque 3: Rankings por Modelo (Funciones de Ventana)
 
 ### ¿Qué se buscaba hacer?
@@ -133,6 +145,10 @@ WHERE Precio IS NOT NULL
 
 - Elegí `DENSE_RANK()` para evitar saltos en la numeración del ranking en caso de que dos o más publicaciones tuvieran exactamente el mismo precio.
 
+:white_check_mark: **Con el ranking interno resuelto, quedaban las dos últimas preguntas del análisis: ¿cómo varía el precio según el kilometraje?, y ¿qué rango de kilometraje concentra más publicaciones? Para responder ambas, agrupé los autos en tres rangos de uso.**
+
+------------------
+
 ## Bloque 4: Segmentación por Uso y Análisis de Depreciación
 
 ### ¿Qué se buscaba hacer?
@@ -156,17 +172,18 @@ GROUP BY Vida_util;
 
 <img width="688" height="251" alt="image 6" src="https://github.com/user-attachments/assets/3ed18f4f-4017-44af-a68f-741ca7b78a40" />
 
+:white_check_mark: **Con esta segmentación quedan respondidas las últimas dos preguntas planteadas al inicio: el precio cae de forma progresiva a medida que aumenta el kilometraje, y el rango de "Uso Moderado" concentra la mayor cantidad de publicaciones del mercado.**
 
-### Tropiezos y Lecciones con la Sintaxis
-
-- **El tropiezo inicial:** En las primeras pruebas intenté escribir múltiples instrucciones `CASE` independientes para cada condición. Esto me generaba columnas separadas e innecesarias en la terminal llenas de espacios vacíos o valores nulos.
-- **La solución:** Aprendí a unificar toda la regla lógica en un solo bloque `CASE WHEN ... THEN ... ELSE ... END`. De esta forma, cada vehículo entra en una sola categoría y el resultado devuelve una columna limpia llamada ‘Vida_util’.
+------------------
 
 <img width="947" height="248" alt="image" src="https://github.com/user-attachments/assets/13677491-0089-444b-8372-e1e2a3a61aa0" />
 
 <img width="1021" height="530" alt="image" src="https://github.com/user-attachments/assets/1471e63d-532f-4213-a246-383af36610bf" />
 
+### Tropiezos y Lecciones con la Sintaxis
 
+- **El tropiezo inicial:** En las primeras pruebas intenté escribir múltiples instrucciones `CASE` independientes para cada condición. Esto me generaba columnas separadas e innecesarias en la terminal llenas de espacios vacíos o valores nulos.
+- **La solución:** Aprendí a unificar toda la regla lógica en un solo bloque `CASE WHEN ... THEN ... ELSE ... END`. De esta forma, cada vehículo entra en una sola categoría y el resultado devuelve una columna limpia llamada ‘Vida_util’.
 
 ### Errores Encontrados y Cosas que Aprendí en el Camino
 
